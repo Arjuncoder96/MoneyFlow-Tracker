@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Financial Planning App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: url('https://source.unsplash.com/1600x900/?finance,planning') no-repeat center center fixed;
+            background-size: cover;
+            height: 100vh;
+            margin: 0;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .overlay {
+            background-color: rgba(0, 0, 0, 0.7);
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 1;
+        }
+
+        .content {
+            z-index: 2;
+            position: relative;
+            text-align: center;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .logo {
+            width: 150px;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-size: 3rem;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        p {
+            font-size: 1.25rem;
+            margin-bottom: 25px;
+        }
+
+        .btn-custom {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            cursor: pointer;
+            margin: 0 10px;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-custom:hover {
+            background-color: #0056b3;
+        }
+
+        .row {
+            display: flex;
+            justify-content: center;
+            margin-top: 50px;
+        }
+
+        .col {
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            padding: 25px;
+            width: 280px;
+            margin: 10px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .card-title {
+            font-size: 1.8rem;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .card-text {
+            font-size: 1rem;
+            color: #555;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        /* Navigation Styles */
+        nav {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: space-between;
+            padding: 15px 30px;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 2;
+        }
+
+        nav .navbar-left {
+            display: flex;
+            align-items: center;
+        }
+
+        nav .navbar-right {
+            display: flex;
+            align-items: center;
+        }
+
+        nav a {
+            color: white;
+            font-size: 1.2rem;
+            text-decoration: none;
+            margin-left: 20px;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #007bff;
+        }
+    </style>
+</head>
+<body>
+
+<div class="overlay"></div>
+
+
+<nav>
+
+    <div class="navbar-right">
+        <img src="logo.png" alt="App Logo" class="logo">
+    </div>
+</nav>
+
+<div class="content">
+    <h1>Welcome to Your Financial Planning App</h1>
+    <p>Manage your finances, track expenses, and achieve your financial goals with ease.</p>
+
+
+
+    <div class="row">
+        <div class="col">
+            <h5 class="card-title">Track Expenses</h5>
+            <p class="card-text">Easily categorize and track your spending to stay on budget.</p>
+        </div>
+        <div class="col">
+            <h5 class="card-title">Set Financial Goals</h5>
+            <p class="card-text">Plan for the future with personalized financial goals.</p>
+        </div>
+        <div class="col">
+            <h5 class="card-title">Analyze Your Finances</h5>
+            <p class="card-text">Get insights with detailed reports and analytics.</p>
+        </div>
+    </div>
+    <div>
+        <a href="/login" class="btn-custom">Login</a>
+        <a href="/signup" class="btn-custom">Sign Up</a>
+    </div>
+</div>
+
+
+<footer>
+    &copy; 2024 Financial Planning App. All rights reserved.
+</footer>
+
+</body>
+</html>

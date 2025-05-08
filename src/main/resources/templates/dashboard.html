@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: url('https://source.unsplash.com/1600x900/?finance,success') no-repeat center center fixed;
+            background-size: cover;
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+            color: #fff;
+        }
+
+        .overlay {
+            background-color: rgba(0, 0, 0, 0.7);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 1;
+        }
+
+        .content {
+            z-index: 2;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            text-align: center;
+        }
+
+        h2, .lead {
+            margin: 0;
+            font-weight: bold;
+        }
+
+        h2 {
+            font-size: 32px;
+        }
+
+        .lead {
+            font-size: 18px;
+        }
+
+        .card-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+            width: 100%;
+        }
+
+        .card {
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 250px;
+            text-align: center;
+        }
+
+        .card h5 {
+            font-size: 18px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .card h2 {
+            font-size: 24px;
+            margin-top: 10px;
+        }
+
+        .text-success {
+            color: #28a745;
+        }
+
+        .text-danger {
+            color: #dc3545;
+        }
+
+        .text-primary {
+            color: #007bff;
+        }
+
+        .btn-custom {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            font-size: 16px;
+            border-radius: 50px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        .btn-custom:hover {
+            background-color: #0056b3;
+        }
+
+        .btn-custom-secondary {
+            background-color: #28a745;
+        }
+
+        .btn-custom-secondary:hover {
+            background-color: #218838;
+        }
+
+        .mt-5 {
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="overlay"></div>
+
+<div class="content">
+    <div>
+        <h2>Welcome, <span th:text="${name}"></span>!</h2>
+        <p class="lead">Here's an overview of your current financial status.</p>
+    </div>
+
+    <div class="card-container">
+        <div class="card">
+            <h5>Total Income</h5>
+            <h2 class="text-success">$<span th:text="${totalIncome}"></span></h2>
+        </div>
+        <div class="card">
+            <h5>Total Expenses</h5>
+            <h2 class="text-danger">$<span th:text="${totalExpenses}"></span></h2>
+        </div>
+        <div class="card">
+            <h5>Balance</h5>
+            <h2 class="text-primary">$<span th:text="${balance}"></span></h2>
+        </div>
+    </div>
+
+    <div class="mt-5">
+        <a th:href="@{/add-transaction}" class="btn-custom">Add New Transaction</a>
+        <a th:href="@{/transactions}" class="btn-custom btn-custom-secondary">View Transaction History</a>
+        <br>
+        <br>
+        <br>
+        <a th:href="@{/logout}" class="btn-custom">Log Out</a>
+    </div>
+</div>
+
+</body>
+</html>
+

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Transaction History</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f7fc;
+      margin: 0;
+      padding: 0;
+      color: #333;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 50px auto;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    h2 {
+      text-align: center;
+      color: #333;
+    }
+
+    table {
+      width: 100%;
+      margin-top: 20px;
+      border-collapse: collapse;
+    }
+
+    th, td {
+      padding: 12px;
+      text-align: left;
+      border: 1px solid #ddd;
+    }
+
+    th {
+      background-color: #f2f2f2;
+      color: #333;
+    }
+
+    td {
+      background-color: #fafafa;
+    }
+
+    td.text-success {
+      color: #28a745;
+    }
+
+    td.text-danger {
+      color: #dc3545;
+    }
+
+    .btn-custom {
+      background-color: #007bff;
+      color: white;
+      border: none;
+      padding: 12px 25px;
+      font-size: 16px;
+      border-radius: 50px;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+      margin-top: 20px;
+      text-align: center;
+      transition: background-color 0.3s ease;
+    }
+
+    .btn-custom:hover {
+      background-color: #0056b3;
+    }
+
+    .back-link {
+      display: block;
+      text-align: center;
+      margin-top: 20px;
+      font-size: 16px;
+    }
+
+    .back-link a {
+      color: #007bff;
+      text-decoration: none;
+    }
+
+    .back-link a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h2>Transaction History</h2>
+
+  <table>
+    <thead>
+    <tr>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Amount</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="transaction : ${transactions}">
+      <td th:text="${transaction.type}"></td>
+      <td th:text="${transaction.description}"></td>
+      <td th:text="${transaction.amount}" class="text-success" th:classappend="${transaction.type == 'Expense' ? ' text-danger' : ''}"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <div class="back-link">
+    <a th:href="@{/dashboard}" class="btn-custom">Back to Dashboard</a>
+  </div>
+</div>
+
+</body>
+</html>
